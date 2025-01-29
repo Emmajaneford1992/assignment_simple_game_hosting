@@ -28,13 +28,13 @@ export default function Home() {
 
   return (
 
-    <div className="fixed w-screen h-[100px] bg-blue-500 top-0 left-0">
+    <div className="fixed w-screen h-[100vh] bg-slate-500 top-0 left-0">
    
         {/* Title */}
         <h1 className="text-2xl font-bold text-center p-5">Minecraft Server Cards</h1>
      
          {/* Card Container */}
-         <div className="grid grid-cols-3 gap-5 p-6 bg-slate-500">
+         <div className="grid grid-cols-3 gap-5 p-6">
 
           {/* Card */}
           {serverData &&
@@ -58,7 +58,7 @@ function Card({ server }: { server: Server }) {
       <p>🎮 <strong>Game Name:</strong> {server.game}</p>
       <p>👤 <strong>Player Count:</strong> {server.players}</p>
       <p>{server.status == "offline" ? "🔴" :"🟢"} <strong>Status:</strong> {server.status}</p>
-      <button className= "bg-teal-500 p-1 w-1/2 rounded-lg self-center" > 
+      <button className= "bg-teal-500 p-1 w-1/2 rounded-lg self-center drop-shadow-lg" > 
         {server.status == "offline" ? "Start Server" :"Stop Server"}
         </button>
     </div>

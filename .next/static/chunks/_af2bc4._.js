@@ -35,7 +35,7 @@ function Home() {
         }
     }["Home.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "fixed w-screen h-[100px] bg-blue-500 top-0 left-0",
+        className: "fixed w-screen h-[100vh] bg-slate-500 top-0 left-0",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                 className: "text-2xl font-bold text-center p-5",
@@ -46,7 +46,7 @@ function Home() {
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "grid grid-cols-3 gap-5 p-6 bg-slate-500",
+                className: "grid grid-cols-3 gap-5 p-6",
                 children: serverData && serverData.map((server)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Card, {
                         server: server
                     }, server.id, false, {
@@ -146,7 +146,7 @@ function Card({ server }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                className: "bg-teal-500 p-1 w-1/2 rounded-lg self-center",
+                className: "bg-teal-500 p-1 w-1/2 rounded-lg self-center drop-shadow-lg",
                 children: server.status == "offline" ? "Start Server" : "Stop Server"
             }, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",
