@@ -52,7 +52,7 @@ export default function Home({}) {
       <header className={`fixed z-10  w-screen flex flex-row place-content-between drop-shadow-lg ${darkMode ? "bg-slate-700" : "bg-slate-200"}`}>
             {/* Title */}
             <h1 className={`text-2xl font-bold text-center p-5 ${darkMode ? "text-slate-100" : "text-slate-900"}`}>
-              Minecraft Server Cards
+              Minecraft Server Cards ⛏
             </h1>
 
 
