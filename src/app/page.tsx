@@ -1,24 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
 
-/*
-  Welcome to the simplegamehosting coding assignment!
-
-  if you got this far great job! 🎉
-  Now it's your turn to shine! 🌟
-  
-  The mock data is fetched from the server and displayed on the page.
-
-  Your task is to create a dynamic card component for each server in the list.
-  - The card should display the server's name, game, players, status, version etc, bonus points for displaying any extra data from the json response.
-  - please use tailwind to style your components, you can use the existing styles in this file as a reference.
-  - You can also use any other libraries you like to help you build the UI.
-  
-  for extra info please read the README.md file in the root of the project.
-*/
+interface Server {
+  id: number;
+  name: string;
+  game: string;
+  players: number;
+  status: string;
+}
 
 export default function Home() {
-  const [serverData, setServerData] = useState(null);
+  const [serverData, setServerData] = useState<Server[] | null>(null);
   // you can update this fetching code if required but it's not necessary for the assignment.
   useEffect(() => {
     const fetchServerData = async () => {
@@ -35,19 +27,41 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {/* main can be deleted and replaced with your own cards */}
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1 className="text-2xl font-bold">Minecraft Server List</h1>
-        <p className="text-gray-600">
-          Below is the JSON data fetched from <code>/api/mock</code>. Use it to
-          build the UI.
-        </p>
-        <pre className="bg-gray-200 text-gray-800 p-4 rounded-lg w-full overflow-auto max-w-4xl text-sm">
-          {serverData ? JSON.stringify(serverData, null, 2) : "Loading data..."}
-        </pre>
-      </main>
-      {/* main can be deleted and replaced with your own cards */}
-    </div>
+
+    <div className="fixed w-screen h-[100px] bg-blue-500 top-0 left-0">
+   
+        {/* Title */}
+        <h1 className="text-2xl font-bold text-center p-5">Minecraft Server Cards</h1>
+     
+         {/* Card Container */}
+         <div className="grid grid-cols-3 gap-5 p-6 bg-slate-500">
+
+          {/* Card */}
+          {serverData &&
+            serverData.map((server) => ( 
+              <Card key={server.id} server={server} />
+            ))
+          }
+
+        </div>
+          
+</div>
+
   );
+}
+
+
+function Card({ server }: { server: Server }) {
+  return(
+    <div className="flex flex-col place-content-around p-5 bg-slate-400 w-100 h-60 rounded-lg drop-shadow-lg">
+      <p>🌐 <strong>Server Name:</strong> {server.name}</p>
+      <p>🎮 <strong>Game Name:</strong> {server.game}</p>
+      <p>👤 <strong>Player Count:</strong> {server.players}</p>
+      <p>{server.status == "offline" ? "🔴" :"🟢"} <strong>Status:</strong> {server.status}</p>
+      <button className= "bg-teal-500 p-1 w-1/2 rounded-lg self-center" > 
+        {server.status == "offline" ? "Start Server" :"Stop Server"}
+        </button>
+    </div>
+  )
+
 }
